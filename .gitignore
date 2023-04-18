@@ -1,0 +1,7 @@
+.cache/
+*.gch
+*.elf
+*.sym
+*.iso
+*.o
+*.d
