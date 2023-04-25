@@ -53,7 +53,7 @@ static void multiboot_parse_cmdline(struct multiboot_tag const* tag) {
     bootstrap_info.command_line = stag->string;
 }
 
-static void multiboot_parse_module(struct multiboot_tag const* tag) {
+void multiboot_parse_module(struct multiboot_tag const* tag) {
     struct multiboot_tag_module const* mtag = 
         (struct multiboot_tag_module const*)tag;
     bootstrap_info.modules[bootstrap_info.nmodules].start = mtag->mod_start;

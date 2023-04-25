@@ -2,6 +2,10 @@
 
 .section .multiboot
 
+.global boostrap_start
+.global bootstrap_edata
+.global bootstrap_end
+
 .global BOOTSTRAP
 .global _start
 _start:
@@ -23,9 +27,9 @@ multiboot2_address_tag_start:
 .short MULTIBOOT_HEADER_TAG_OPTIONAL
 .long multiboot2_address_tag_end - multiboot2_address_tag_start
 .long multiboot2_header_start // header_addr
-.long UBENCHOS // load_addr
-.long _edata // load_end_addr
-.long _end // bss_end_addr
+.long boostrap_start // load_addr
+.long bootstrap_edata // load_end_addr
+.long bootstrap_end // bss_end_addr
 multiboot2_address_tag_end:
 .align MULTIBOOT_TAG_ALIGN
 multiboot2_entry_address_tag_start:

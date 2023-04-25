@@ -5,3 +5,6 @@
 *.iso
 *.o
 *.d
+**/build
+**/compile_commands.json
+TODOLIST

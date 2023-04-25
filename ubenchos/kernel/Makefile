@@ -1,5 +1,7 @@
-CPPFLAGS := -DKERNEL -nostdlib -ffreestanding \
-	-Iinclude
+include ../../make/ubenchos-common-config.mk
+include ../../make/ubenchos-kernel-config.mk
+
+CPPFLAGS := -DKERNEL -nostdlib -ffreestanding -Iinclude
 
 CFLAGS := -ffreestanding -nostdlib -fno-pie -fno-pic -no-pie \
 	-Iinclude -O3 -g
@@ -12,9 +14,10 @@ AS := gcc -x assembler-with-cpp -DASM_FILE -c
 CC := gcc
 LD := gcc
 
-BINARY_UNSTRIPPED := kernel-unstripped.elf
-BINARY := kernel.elf
-SYMBOLS := kernel.sym
-LINKER := kernel.ld
+NEED_STRIPPING := 1
+EXECUTABLE_UNSTRIPPED := kernel-unstripped.elf
+EXECUTABLE_SYMBOLS := kernel.sym
+EXECUTABLE := kernel.elf
+LINKER_SCRIPT := kernel.ld
 
-include ../Makefile.inc
+include ../../make/build-executable.mk
